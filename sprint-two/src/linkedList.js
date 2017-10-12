@@ -33,7 +33,7 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    debugger;
+    // debugger;
     // check if we're at head of list... if so
     if (arguments[1] === undefined) {
       // compare target to list.head.value, if true
