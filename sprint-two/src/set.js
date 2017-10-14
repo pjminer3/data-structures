@@ -17,6 +17,10 @@ setPrototype.contains = function(item) {
 };
 
 setPrototype.remove = function(item) {
+  if (!this._storage.hasOwnProperty(item)) {
+    return 'Value not found';
+  }
+  
   delete this._storage[item];
 };
 

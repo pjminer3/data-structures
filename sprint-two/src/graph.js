@@ -4,13 +4,13 @@ var Graph = function() {
   this.nodeList = {};
 };
 
+
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
   if (this.nodeList[node] === undefined) {
     this.nodeList[node] = [];
   } 
 };
-
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
@@ -34,8 +34,13 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  this.nodeList[fromNode].push(toNode);
-  this.nodeList[toNode].push(fromNode);
+  if (this.contains(toNode)) {
+    this.nodeList[fromNode].push(toNode);
+    this.nodeList[toNode].push(fromNode);
+  } else {
+    this.addNode(toNode);
+    this.addEdge(fromNode, toNode);
+  }
 };
 
 // Remove an edge between any two specified (by value) nodes.

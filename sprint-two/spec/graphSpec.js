@@ -68,4 +68,11 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+  
+  it('should create new node and add the proper edge when calling addEdge with a node that doesn\'t yet exist', function() {
+    graph.addNode(5);
+    graph.addEdge(5, 7);
+    expect(graph.contains(7)).to.equal(true);
+    expect(graph.hasEdge(7, 5)).to.equal(true);
+  });
 });

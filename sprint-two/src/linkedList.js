@@ -2,6 +2,10 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
+  
+  list.peek = function() {
+    return this.head.value;
+  };
 
   list.addToTail = function(value) {
     // create node
