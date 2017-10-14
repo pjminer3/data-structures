@@ -54,7 +54,6 @@ BinarySearchTree.prototype.contains = function(value) {
       return false;
     }
   }
-    
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
@@ -70,7 +69,36 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
   }
 };
 
+BinarySearchTree.prototype.breadthFirstLog = function(cb) {
+  // create treeArr to store tree nodes
+  var treeArr = [];
+  
+  treeArr.push(this);
+  
+  // declare private function traverseTree with input of a tree node
+  var traverseTree = function(tree, cb) {
+    // call cb(input)
+    cb(tree.value);
+    // if !!input.left, push to treeArr
+    if ( tree.left ) { 
+      treeArr.push(tree.left);
+    }
+    // if !!input.right, push to treeArr
+    if ( tree.right ) {
+      treeArr.push(tree.right);
+    }
+  };
+  // loop through treeArr
+  for (var i = 0; i < treeArr.length; i++) {
+    // call traverseTree on each node of treeArr
+    traverseTree(treeArr[i], cb);
+  }
+};
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ - insert(value): O(1)
+ - contains(value): O(log(n))
+ - depthFirstLog(cb): O(n)
  */
