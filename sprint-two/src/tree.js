@@ -21,7 +21,7 @@ treeMethods.contains = function(target) {
   // debugger;
   var result = false;
   
-  function recurse(target, tree) {
+  var recurse = function(target, tree) {
     if (target === tree.value) {
       result = true;
     } else if (tree.children.length >= 0) {
@@ -29,7 +29,7 @@ treeMethods.contains = function(target) {
         recurse(target, child);
       });
     } 
-  }
+  };
   recurse(target, this);
   return result;
 };
@@ -38,4 +38,6 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+    - tree.addChild(val): O(1)
+    - tree.contains(val): O(n)
  */
