@@ -62,7 +62,7 @@ HashTable.prototype.remove = function(k) {
   // if tupleIdx
   if (targetIdx >= 0) {
     // remove tuple from bucket using splice
-    bucketRef.splice(targetIdx,1);
+    bucketRef.splice(targetIdx, 1);
   }
 };
 
@@ -70,6 +70,9 @@ HashTable.prototype.remove = function(k) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  - .insert(key, value): O(n)
+  - .retrieve(k): O(n)
+  - remove(k): O(n)
  */
 
 

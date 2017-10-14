@@ -1,33 +1,36 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = []; // fix me
+  // set._storage = []; // fix me
+  set._storage = {};
+  set.counter = true;
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  if (!this.contains(item)) {
-    this._storage.push(item); 
-  }
+  this._storage[item] = this.counter;
 };
 
 setPrototype.contains = function(item) {
-  for (var i = 0; i < this._storage.length; i++) {
-    if (this._storage[i] === item) {
-      return true;
-    }
-  }
-  return false;
+  return !!this._storage[item];
 };
 
 setPrototype.remove = function(item) {
-  if (this.contains(item)) {
-    this._storage.splice(this._storage.indexOf(item), 1);
-  }
+  delete this._storage[item];
 };
 
 
 /*
- * Complexity: What is the time complexity of the above functions?
+ * Complexity: What is the time complexity of the above functions?  
+ 
+ - add(item): O(n)
+ - contains(item): O(n)
+ - remove(item): O(n)
+ 
+ Complexity: What is the time complexity of the above functions after we make time complexity constant?  
+ - add(item): O(1)
+ - contains(item): O(1)
+ - remove(item): O(1)
+ 
  */
