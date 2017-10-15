@@ -51,11 +51,18 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  // it('should return value of head node when using \"peek\"', function() {
+  //   linkedList.addToTail(3);
+  //   linkedList.addToTail(4);
+  //   expect(linkedList.peek()).to.equal(3);
+  // });
+  
+  // add more tests here to test the functionality of linkedList
+
   it('should return value of head node when using \"peek\"', function() {
     linkedList.addToTail(3);
     linkedList.addToTail(4);
     expect(linkedList.peek()).to.equal(3);
   });
-  
-  // add more tests here to test the functionality of linkedList
+
 });
